@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
   const [sheetUrl, setSheetUrl] = useState('');
-  const [showGoogleSheets, setShowGoogleSheets] = useState(false);
+  const [showGoogleSheets, setShowGoogleSheets] = useState(true);
 
   return (
     <div className="olympic-bg">
@@ -44,24 +44,9 @@ function App() {
         </section>
         <section className="sheets-card olympic-accent">
           <h2 className="section-title">Connect Your Google Sheet</h2>
-          <div className="url-input-container">
-            <input
-              type="text"
-              placeholder="Paste your Google Sheets URL here..."
-              value={sheetUrl}
-              onChange={(e) => setSheetUrl(e.target.value)}
-              className="url-input"
-            />
-            <button
-              onClick={() => setShowGoogleSheets(true)}
-              className="connect-btn"
-              disabled={!sheetUrl.trim()}
-            >
-              Connect Sheet
-            </button>
-          </div>
+          
           {showGoogleSheets && (
-            <GoogleSheetsData sheetUrl={sheetUrl} />
+            <GoogleSheetsData sheetUrl={"https://docs.google.com/spreadsheets/d/1Ji3h_aUL0X9w2jIUWqCQOlVyTEd9rQR4-sdtEww7prY/edit?usp=sharing"} />
           )}
         </section>
       </main>

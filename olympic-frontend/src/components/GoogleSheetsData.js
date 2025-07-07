@@ -26,11 +26,7 @@ const GoogleSheetsData = ({ sheetUrl }) => {
   const [initialLoad, setInitialLoad] = useState(true);
 
   useEffect(() => {
-    if (!sheetUrl) {
-      setError('No Google Sheet URL or ID provided.');
-      setLoading(false);
-      return;
-    }
+    
     fetchTeams(true);
     const interval = setInterval(() => fetchTeams(false), 20000); // 20 seconds
     return () => clearInterval(interval);
@@ -43,7 +39,7 @@ const GoogleSheetsData = ({ sheetUrl }) => {
     try {
       const SHEET_ID = extractSheetId(sheetUrl);
       if (!SHEET_ID) throw new Error('Invalid Google Sheet URL or ID.');
-      const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
+      const url = `https://sheets.googleapis.com/v4/spreadsheets/1Ji3h_aUL0X9w2jIUWqCQOlVyTEd9rQR4-sdtEww7prY/values/${RANGE}?key=${API_KEY}`;
       const response = await fetch(url);
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       const data = await response.json();
