@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import GoogleSheetsData from './components/GoogleSheetsData';
+import aladdinLogo from './Aladdin_Franchise_Logo.png';
 import './App.css';
 
 function App() {
@@ -10,18 +11,18 @@ function App() {
     <div className="olympic-bg">
       <header className="olympic-header-strip">
         <img
-          src="/Olympic_rings_without_rims.png"
-          alt="Olympics Logo"
+          src={aladdinLogo}
+          alt="Aladdin Logo"
           className="olympics-logo-header"
         />
         <div className="olympic-header-content">
-          <h1 className="olympic-title">Olympic Team Dashboard</h1>
-          <span className="olympic-tagline">Track your teams in Olympic style</span>
+          <h1 className="olympic-title">Arabian Nights Team Dashboard</h1>
+          <span className="olympic-tagline">Your wish is my command</span>
         </div>
       </header>
       <main className="olympic-main-content">
         <section className="olympic-gallery-section">
-          <h2 className="section-title">Teams</h2>
+          <h2 className="section-title">Royal Caravans</h2>
           <div className="olympic-gallery olympic-gallery-rows">
             {[0, 1].map(row =>
               <div className="gallery-row" key={row}>
@@ -44,7 +45,7 @@ function App() {
         </section>
         <section className="sheets-card olympic-accent">
           <h2 className="section-title">Connect Your Google Sheet</h2>
-          
+
           {showGoogleSheets && (
             <GoogleSheetsData sheetUrl={"https://docs.google.com/spreadsheets/d/1Ji3h_aUL0X9w2jIUWqCQOlVyTEd9rQR4-sdtEww7prY/edit?usp=sharing"} />
           )}
